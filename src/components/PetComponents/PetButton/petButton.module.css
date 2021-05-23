@@ -1,0 +1,7 @@
+.petButton {
+  border-radius: 50%;
+  height: 55px;
+  width: 70px;
+  background-color: lightgray;
+  margin: 20px 10px;
+}

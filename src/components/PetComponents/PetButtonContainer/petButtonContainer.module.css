@@ -1,6 +1,6 @@
-.App {
+.petButtonContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 5% 2%;
+  width: 475px;
 }

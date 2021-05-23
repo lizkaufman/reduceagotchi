@@ -1,13 +1,13 @@
 import "./App.css";
 
-import PetContainer from "../PetContainer";
-import CodeContainer from "../CodeContainer";
+import PetContainer from "../PetComponents/PetContainer";
+import CodeContainer from "../CodeComponents/CodeContainer";
 
 function App() {
   return (
     <div className="App">
       <CodeContainer />
-      {/* <PetContainer /> */}
+      <PetContainer />
     </div>
   );
 }

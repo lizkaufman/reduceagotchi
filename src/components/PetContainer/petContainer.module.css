@@ -1,9 +1,0 @@
-.petContainer {
-  width: 600px;
-  height: 500px;
-  background: linear-gradient(145deg, rgb(224, 125, 32), #f0462f);
-  border-radius: 300px / 360px;
-
-  display: flex;
-  flex-direction: column;
-}

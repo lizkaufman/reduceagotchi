@@ -6,14 +6,10 @@ import "ace-builds/src-noconflict/theme-monokai";
 
 import css from "./codeContainer.module.css";
 
-// function onChange(newValue) {
-//   console.log("change", newValue);
-// }
-
 const CodeContainer = () => {
   const [code, setCode] = useState(`function helloWorld(){
-        return "Hello world!";
-    }`);
+    return "Hello world!";
+}`);
 
   function handleChange(value) {
     setCode(value);
@@ -28,6 +24,10 @@ const CodeContainer = () => {
         onChange={handleChange}
         name="codeContainer"
         editorProps={{ $blockScrolling: true }}
+        value={code}
+        wrapEnabled={true}
+        highlightActiveLine={true}
+        height={600}
       />
     </div>
   );
