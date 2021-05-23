@@ -1,7 +1,9 @@
 .screen {
-  height: 250px;
+  height: 260px;
   width: 475px;
   background-color: lightgray;
-  box-shadow: 0px 0px 10px grey;
+  box-shadow: 0px 0px 10px lightgray;
+  border: 2px solid rgb(109, 109, 109);
   border-radius: 10px;
+  margin-top: 25px;
 }

@@ -5,3 +5,7 @@
   background-color: lightgray;
   margin: 20px 10px;
 }
+
+.petButton:hover {
+  cursor: pointer;
+}

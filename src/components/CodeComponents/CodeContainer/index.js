@@ -6,6 +6,8 @@ import "ace-builds/src-noconflict/theme-monokai";
 
 import css from "./codeContainer.module.css";
 
+import CodeButton from "../CodeButton";
+
 const CodeContainer = () => {
   const [code, setCode] = useState(`function helloWorld(){
     return "Hello world!";
@@ -27,8 +29,9 @@ const CodeContainer = () => {
         value={code}
         wrapEnabled={true}
         highlightActiveLine={true}
-        height={600}
+        height={550}
       />
+      <CodeButton />
     </div>
   );
 };
