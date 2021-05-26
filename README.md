@@ -37,6 +37,8 @@ An educational in-browser game where you learn how to use reducer functions by i
 
 ## Development notes
 
+As much as I aim for the outcome of this to be something educational and useful, this project is also meant to be a learning experience for me. In this section, I'll keep a diary of learning points and snags I hit along the way (and how I extricate myself from them!) as I develop.
+
 ### Code editor
 
 First, I attempted to use [Monaco](https://www.npmjs.com/package/@monaco-editor/react) for the code editor. At first, it didn't show at all, and then I got it to display "Loading...", but it didn't load.
