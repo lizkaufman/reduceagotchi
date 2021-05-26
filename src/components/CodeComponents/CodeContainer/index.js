@@ -36,12 +36,14 @@ const CodeContainer = () => {
   }
 
   function evalPlayerCode(playerCode) {
-    function petReducer() {
+    function reducer() {
       return "your reducer didn't work";
     }
-    eval(playerCode);
-    const nextState = petReducer(petState, { type: "FEED" });
-    console.log(nextState);
+
+    eval(playerCode + "\n reducer = petReducer");
+    const nextState = reducer(petState, { type: "FEED" });
+    setPetState(nextState);
+    console.log({ petState });
   }
 
   return (
