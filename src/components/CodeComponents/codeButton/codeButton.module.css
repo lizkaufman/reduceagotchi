@@ -10,3 +10,9 @@
 .codeButton:hover {
   cursor: pointer;
 }
+
+@media only screen and (max-width: 800px) {
+  .codeButton {
+    margin-top: 3%;
+  }
+}

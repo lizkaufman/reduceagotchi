@@ -2,5 +2,22 @@
     "cSpell.ignoreWords": [
         "clike",
         "gotchi"
-    ]
+    ],
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#58dcdc",
+        "activityBar.activeBorder": "#d847d8",
+        "activityBar.background": "#58dcdc",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#d847d8",
+        "activityBarBadge.foreground": "#15202b",
+        "statusBar.background": "#2ed3d3",
+        "statusBar.foreground": "#15202b",
+        "statusBarItem.hoverBackground": "#24aaaa",
+        "titleBar.activeBackground": "#2ed3d3",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.inactiveBackground": "#2ed3d399",
+        "titleBar.inactiveForeground": "#15202b99"
+    },
+    "peacock.color": "rgb(46, 211, 211)"
 }
