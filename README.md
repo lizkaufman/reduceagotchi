@@ -11,25 +11,25 @@ An educational in-browser game where you learn how to use reducer functions by i
 
 (🚧 = in progress, ✅ = done)
 
-- ✅ Create basic virtual pet container (tamagotchi-like) with CSS, involving a screen and buttons
-- ✅ Add a code editor for the user to input code
-- 🚧 Create pixel art sprites to then show on the screen at different stages
-- Outline the initial plan for the logic
+- ✅ Create basic virtual pet container (tamagotchi-like) with CSS, involving a screen and buttons.
+- ✅ Add a code editor for the user to input code.
+- 🚧 Create pixel art sprites to then show on the screen at different stages.
+- Outline the initial plan for the logic.
   - What will the state hold?
   - What will the buttons do?
   - What feedback will the user get?
   - When will the user "win"?
-- Plan out game flow
-  - Work out how to break the game logic into each step of the functionality the user needs to add, each bite-sized bit of code that will connect up another button and/or cause something to happen on the screen
-  - Write the copy/instructions the user will see
-- Decide where the instructions will show on the page. Will they pop up over the page's contents? Will they appear as comments in the code input area?
+- Plan out game flow.
+  - Work out how to break the game logic into each step of the functionality the user needs to add, each bite-sized bit of code that will connect up another button and/or cause something to happen on the screen.
+  - Write the copy/instructions the user will see.
+- Decide where the instructions will show on the pag. Will they pop up over the page's contents? Will they appear as comments in the code input area?
 - Work out how to connect the code the user inputs to the code that fuels the game itself.
-- Get the game logic running (i.e. in the console)
-- Incorporate the sprites visually on the screen at the right points
-- Test
-- Deploy dev version for feedback
-- Collect and incorporate feedback
-- Deploy prod version
+- Get the game logic running at a basic level so the code works (i.e. in the console).
+- Incorporate the sprites visually on the screen at the right points.
+- Test!
+- Deploy dev version for feedback.
+- Collect and incorporate feedback.
+- Deploy prod version.
 
 ## Dependencies
 
