@@ -49,7 +49,7 @@ However, I gave Ace a go after that, and it worked like a dream!
 
 ### Hooking up the code editor's code to the app
 
-Shout out to Nick Goodall (@nbgoodall) for his guidance as we paired on getting the code editor to start to talk to the app's code! We experimented with both handing the user's input to `new Function()` and using `eval()`. Evaluating worked because it runs in the current scope where the app's code is (whereas when we handed it to `new Function()`, it created a new scope). This means that if the state lives within the app and the user inputs the reducer function that acts on that state, these can play nicely together within the same scope.
+Shout out to Nick Goodall for his guidance as we paired on getting the code editor to start to talk to the app's code! We experimented with both handing the user's input to `new Function()` and using `eval()`. Evaluating worked because it runs in the current scope where the app's code is (whereas when we handed it to `new Function()`, it created a new scope). This means that if the state lives within the app and the user inputs the reducer function that acts on that state, these can play nicely together within the same scope.
 
 <!--
 
