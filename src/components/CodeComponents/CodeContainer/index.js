@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-monokai";
-// ! FIXME: Change theme to one with a more visible color for comments!
 
 import css from "./codeContainer.module.css";
 import { initialPetState, initialCodeState, tasks } from "../../../libs";
@@ -22,21 +21,22 @@ const CodeContainer = () => {
   }
 
   function handleRunCodeClick() {
-    const [nextState, success] = runInputtedReducer(code, petState, "FEED");
+    // NOTE: This logic works for now with running a single action type when clicking run code. This is going to need to change when the action types are tied to buttons!
+    const [result, success] = runInputtedReducer(code, petState, "FEED");
 
-    console.log({ nextState, success });
+    console.log({ result, success });
 
-    if (!success) {
-      console.log(nextState);
+    if (success) {
+      setPetState(result);
     } else {
-      setPetState(nextState);
+      console.log(result);
     }
   }
 
   function handleNextStepClick() {
     //TODO: Add testing logic here to check user's code before proceeding to next stage!!
+    //NOTE: Will probably need to lift this state up... Or roll it into a reducer that manages the "behind the scenes" bits of the app!
     setTaskStage(taskStage + 1);
-    setCode(`/*${tasks[taskStage].instructions}*/\n${code}`);
   }
 
   return (
@@ -47,7 +47,7 @@ const CodeContainer = () => {
         onChange={handleCodeChange}
         name="codeContainer"
         editorProps={{ $blockScrolling: true }}
-        value={`${code}`}
+        value={code}
         wrapEnabled={true}
         highlightActiveLine={true}
         height={550}
