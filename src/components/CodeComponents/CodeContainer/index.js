@@ -20,28 +20,29 @@ const CodeContainer = () => {
     }
   }`);
 
-  //When the user presses run code, whatever function is held in the code state runs
-  //new Function creates a new scope; eval runs in current scope
-
-  //keep track as state changes by storing up to date state in local storage
+  //TODO: keep track as state changes by storing up to date state in local storage
   //re-running reducer whenever that state in local storage changes
   //every time user runs an action, re-run reducer w/ the state in local storage, then re-save the resulting state in LS
+  // TODO: Also add functionality to save code so far into local storage so a user can save where they got to and come back later!
 
   function handleChange(value) {
     setCode(value);
   }
 
   function handleClick() {
+    //When the user presses run code, whatever function is held in the code state runs
     evalPlayerCode(code);
   }
 
   function evalPlayerCode(playerCode) {
-    function petReducer() {
-      return "your reducer didn't work";
+    function reducer() {
+      return "Your reducer didn't work. Check your code and try again!";
     }
-    eval(playerCode);
-    const nextState = petReducer(petState, { type: "FEED" });
-    console.log(nextState);
+
+    eval(playerCode + "\n reducer = petReducer");
+    const nextState = reducer(petState, { type: "FEED" });
+    setPetState(nextState);
+    console.log({ petState });
   }
 
   return (

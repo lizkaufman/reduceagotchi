@@ -46,3 +46,7 @@ First, I attempted to use [Monaco](https://www.npmjs.com/package/@monaco-editor/
 Next, I tried [react-simple-code-editor](https://github.com/satya164/react-simple-code-editor) with [Prism](https://www.npmjs.com/package/prismjs) (syntax highlighting). I kept getting the error "highlight is not a function", even though I'm importing highlight from Prism.
 
 However, I gave Ace a go after that, and it worked like a dream!
+
+### Hooking up the code editor's code to the app
+
+Shout out to Nick Goodall (@nbgoodall) for his guidance as we paired on getting the code editor to start to talk to the app's code! We experimented with both handing the user's input to `new Function()` and using `eval()`. Evaluating worked because it runs in the current scope where the app's code is (whereas when we handed it to `new Function()`, it created a new scope). This means that if the state lives within the app and the user inputs the reducer function that acts on that state, these can play nicely together within the same scope.
