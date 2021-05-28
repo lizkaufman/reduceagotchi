@@ -1,48 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AceEditor from "react-ace";
-
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-monokai";
+// ! FIXME: Change theme to one with a more visible color for comments!
 
 import css from "./codeContainer.module.css";
-
+import { initialPetState, initialCodeState, tasks } from "../../../libs";
+import runInputtedReducer from "../../../libs/runInputtedReducer";
 import CodeButton from "../CodeButton";
 
 const CodeContainer = () => {
-  const [petState, setPetState] = useState({ hunger: 100 });
-  const [code, setCode] = useState(`
-  function petReducer(state, action){
-    switch (action.type) {
-      case "FEED":
-        return {...state, hunger: Math.max(state.hunger-10, 0)}
-      default:
-        return state;
-    }
-  }`);
+  const [petState, setPetState] = useState(initialPetState);
+  const [code, setCode] = useState(initialCodeState);
+  const [taskStage, setTaskStage] = useState(0);
 
-  //TODO: keep track as state changes by storing up to date state in local storage
-  //re-running reducer whenever that state in local storage changes
-  //every time user runs an action, re-run reducer w/ the state in local storage, then re-save the resulting state in LS
+  //TODO: keep track as state changes by storing up to date state in local storage, re-running reducer whenever that state in local storage changes. Every time user runs an action, re-run reducer w/ the state in local storage, then re-save the resulting state in LS.
   // TODO: Also add functionality to save code so far into local storage so a user can save where they got to and come back later!
 
-  function handleChange(value) {
+  function handleCodeChange(value) {
     setCode(value);
   }
 
-  function handleClick() {
-    //When the user presses run code, whatever function is held in the code state runs
-    evalPlayerCode(code);
+  function handleRunCodeClick() {
+    const [nextState, success] = runInputtedReducer(code, petState, "FEED");
+
+    console.log({ nextState, success });
+
+    if (!success) {
+      console.log(nextState);
+    } else {
+      setPetState(nextState);
+    }
   }
 
-  function evalPlayerCode(playerCode) {
-    function reducer() {
-      return "Your reducer didn't work. Check your code and try again!";
-    }
-
-    eval(playerCode + "\n reducer = petReducer");
-    const nextState = reducer(petState, { type: "FEED" });
-    setPetState(nextState);
-    console.log({ petState });
+  function handleNextStepClick() {
+    //TODO: Add testing logic here to check user's code before proceeding to next stage!!
+    setTaskStage(taskStage + 1);
+    setCode(`/*${tasks[taskStage].instructions}*/\n${code}`);
   }
 
   return (
@@ -50,15 +44,21 @@ const CodeContainer = () => {
       <AceEditor
         mode="javascript"
         theme="monokai"
-        onChange={handleChange}
+        onChange={handleCodeChange}
         name="codeContainer"
         editorProps={{ $blockScrolling: true }}
-        value={code}
+        value={`${code}`}
         wrapEnabled={true}
         highlightActiveLine={true}
         height={550}
       />
-      <CodeButton handleClick={handleClick} />
+      <section className={css.codeButtons}>
+        <CodeButton
+          buttonText="Run my code!"
+          handleClick={handleRunCodeClick}
+        />
+        <CodeButton buttonText="Next step" handleClick={handleNextStepClick} />
+      </section>
     </div>
   );
 };

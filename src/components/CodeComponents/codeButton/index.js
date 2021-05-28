@@ -1,10 +1,10 @@
 import React from "react";
 import css from "./codeButton.module.css";
 
-const CodeButton = ({ handleClick }) => {
+const CodeButton = ({ buttonText, handleClick }) => {
   return (
     <button onClick={handleClick} className={css.codeButton}>
-      Run my code!
+      {buttonText}
     </button>
   );
 };

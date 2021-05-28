@@ -10,3 +10,7 @@
     padding: 5%;
   }
 }
+
+.codeButtons {
+  display: flex;
+}
